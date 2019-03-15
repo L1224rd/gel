@@ -5,7 +5,7 @@ gel.get = (url, callback) => {
   http.open('GET', url, true);
 
   http.onload = () => {
-    if (http.status === 200 && http.status === 400) {
+    if (http.status >= 200 && http.status < 400) {
       // Success!
       callback(http.responseText);
     }
@@ -20,7 +20,7 @@ gel.post = (url, data, callback) => {
   http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
   
   http.onload = () => {
-    if (http.status === 200 && http.status === 400) {
+    if (http.status >= 200 && http.status < 400) {
       // Success!
       callback(http.responseText);
     }
